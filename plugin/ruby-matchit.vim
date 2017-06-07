@@ -47,7 +47,7 @@ function! s:Ruby_Matchit()
 	    endif
 	endwhile
     elseif curr_word =~ '\<\(if\|unless\|elsif\|else\|case\|when\|while\|'
-		\.'until\|def\|\|module\|class\)\>'
+               \.'until\|def\|\|module\|class\)\>' || getline(".") =~ 'do\(\ \|.*\|\)$'
 	while 1
 	    normal j
 	    if strlen(matchstr(getline("."), "^\\s*")) == spaces
